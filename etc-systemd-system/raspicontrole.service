@@ -1,0 +1,17 @@
+[Unit]
+Description= Serveur de controle de la raspberry
+
+[Service]
+Type=idle
+PIDFile=/run/raspicontrole.pid
+WorkingDirectory=/var/www/raspiControle/
+ExecStart=/usr/bin/nodejs app.js
+Restart=always
+  RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=raspicontrole
+
+
+[Install]
+WantedBy=multi-user.target

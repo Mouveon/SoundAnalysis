@@ -1,0 +1,2 @@
+ACTION=="add", ATTRS{idVendor}=="1a2b", ATTRS{idProduct}=="0004", SYMLINK+="sonom"
+

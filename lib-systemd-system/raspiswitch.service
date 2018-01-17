@@ -1,0 +1,11 @@
+[Unit]
+Description=Detection de la configuration de la raspberry (routeur/client)
+
+[Service]
+Type=idle
+ExecStartPre=/sbin/ifdown wlan0
+ExecStart=/usr/bin/python3 /usr/local/bin/raspiswitchV3.py
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

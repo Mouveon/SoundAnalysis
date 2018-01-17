@@ -1,0 +1,15 @@
+[Unit]
+Description=dhcpcd on all interfaces
+Wants=network.target sys-subsystem-net-devices-br0.device
+Before=network.target sys-subsystem-net-devices-br0.device
+After=avahi-daemon.service
+
+[Service]
+Type=forking
+PIDFile=/run/dhcpcd.pid
+ExecStart=/sbin/dhcpcd -q -b
+ExecStop=/sbin/dhcpcd -x
+
+[Install]
+WantedBy=multi-user.target
+Alias=dhcpcd5

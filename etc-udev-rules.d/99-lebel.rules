@@ -1,0 +1,2 @@
+ACTION=="add", ATTRS{idVendor}=="2047", ATTRS{idProduct}=="0300", SYMLINK+="lebel"
+

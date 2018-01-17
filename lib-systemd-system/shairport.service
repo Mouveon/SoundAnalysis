@@ -1,0 +1,10 @@
+[Unit]
+Description=Connard de gestionnaire d'airplay a la con
+
+[Service]
+Type=simple
+PIDFile=/run/shairport.pid
+ExecStart=/home/pi/shairport/shairport.pl -a %H
+
+[Install]
+WantedBy=multi-user.target

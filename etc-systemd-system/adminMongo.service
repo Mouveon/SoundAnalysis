@@ -1,0 +1,17 @@
+[Unit]
+Description= Administration de la base de donnee
+
+[Service]
+Type=idle
+PIDFile=/run/adminMongo.pid
+WorkingDirectory=/var/www/adminMongo/
+ExecStart=/usr/bin/nodejs app.js
+Restart=always
+  RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=adminMongo
+
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=Connard de gestionnaire du point d'acces
+
+[Service]
+Restart=always
+Type=forking
+PIDFile=/run/hostapd.pid
+ExecStartPre=/sbin/ifdown wlan0
+ExecStart=/usr/sbin/hostapd /etc/hostapd/hostapd_BienEntendu.conf -P /run/hostapd.pid -B
+
+[Install]
+WantedBy=multi-user.target
